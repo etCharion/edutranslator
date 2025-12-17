@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTranslator - String Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EduTranslator</h1>
+            <p>Extraktor a editor textü v kosatínkách</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <h2>Krok 1: Nahraj soubor s kódem</h2>
+                <div class="file-upload" id="fileUpload" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+                    <p>Prˇetahni soubor sem nebo <button onclick="document.getElementById('fileInput').click()" class="btn-text">vyberi soubor</button></p>
+                    <input type="file" id="fileInput" accept=".txt,.js,.ts,.jsx,.tsx,.html,.css,.py,.java,.cpp,.c,.go,.rs,.rb,.php,.swift" style="display: none;" onchange="handleFileSelect(event)">
+                </div>
+            </div>
+
+            <!-- Processing Section -->
+            <div id="processingSection" class="processing-section" style="display: none;">
+                <h2>Krok 2: Najdeneˇ texty v "" (uvozovkách)</h2>
+                <div class="processing-controls">
+                    <button onclick="resetAll()" class="btn btn-secondary">Zacˇ́t znovu</button>
+                    <button onclick="downloadModified()" class="btn btn-primary">Stahni upravený soubor</button>
+                </div>
+
+                <div class="strings-container">
+                    <div id="stringsList" class="strings-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
